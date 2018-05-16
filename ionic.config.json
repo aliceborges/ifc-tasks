@@ -1,0 +1,8 @@
+{
+  "name": "todo-list",
+  "app_id": "bdf11862",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
