@@ -27,7 +27,13 @@
         <ion-toggle checked="{{(task.status == 'pending')?false:true}}" (click)="doneTask(task.id, task.status)">
         </ion-toggle>
         <ion-label>
-          <h2 [ngClass]="t.status">{{task.task}}</h2>
+          <h2 [ngClass]="task.status">{{task.task}}</h2>
+          <p [ngClass]="task.body">
+            {{task.body}}
+          </p>
+          <p [ngClass]="task.deadline">
+            Termina no dia: {{task.deadline}}
+          </p>
           <p [ngClass]="task.priority">
             {{task.priority}}
           </p>
@@ -36,7 +42,7 @@
 
       <ion-item-options>
         <button primary (click)="showModal(task.id)"><ion-icon name="clipboard">Editar</ion-icon></button>
-        <button danger (click)="deleleTask(task.id)"><ion-icon name="trash">Remover</ion-icon></button>    
+        <button danger (click)="deleleTask(task.id)"><ion-icon name="trash">Remover</ion-icon></button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
