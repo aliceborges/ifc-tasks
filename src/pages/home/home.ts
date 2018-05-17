@@ -15,11 +15,11 @@ export class HomePage {
     this.navCtrl = nav;
 
     this.tasks = [
-      {task:'task1', priority:'low', body:'content', deadline:'01/01/2019', status:'pending'},
-      {task:'task2', priority:'high', body:'content', deadline:'01/01/2019', status:'pending'},
-      {task:'task3', priority:'normal', body:'content', deadline:'01/01/2019', status:'pending'},
-      {task:'task4', priority:'high', body:'content', deadline:'01/01/2019', status:'done'},
-      {task:'task5', priority:'low', body:'content', deadline:'01/01/2019', status:'pending'},
+      {task:'task1', priority:'baixa', body:'content', deadline:'01/01/2019', status:'pendente'},
+      {task:'task2', priority:'alta', body:'content', deadline:'01/01/2019', status:'pendente'},
+      {task:'task3', priority:'normal', body:'content', deadline:'01/01/2019', status:'pendente'},
+      {task:'task4', priority:'alta', body:'content', deadline:'01/01/2019', status:'finalizada'},
+      {task:'task5', priority:'baixa', body:'content', deadline:'01/01/2019', status:'pendente'},
     ]
   }
 
