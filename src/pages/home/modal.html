@@ -1,0 +1,42 @@
+<ion-toolbar color="primary">
+  <ion-title>
+    Adicionar Tarefa
+  </ion-title>
+  <ion-buttons start>
+    <button ion-button color="light" (click)="close()">
+      <ion-icon name="close">Cancelar</ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Tarefa</ion-label>
+      <ion-input type="text" [(ngModel)]="task"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Descrição</ion-label>
+      <ion-input type="text" [(ngModel)]="body"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Data de Entrega</ion-label>
+      <ion-input type="data" [(ngModel)]="deadline"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Prioridade</ion-label>
+      <ion-select [(ngModel)]="priority">
+        <ion-option value="alta">Alta</ion-option>
+        <ion-option value="normal">Normal</ion-option>
+        <ion-option value="baixa">Baixa</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div padding>
+      <button>Adicionar</button>
+    </div>
+  </ion-list>
+</ion-content>
