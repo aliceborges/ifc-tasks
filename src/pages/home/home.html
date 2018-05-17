@@ -1,14 +1,43 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar primary>
     <ion-title>
-      Ionic Blank
+      IFC Tasks
     </ion-title>
+
+    <ion-buttons end>
+      <button>
+           <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <ion-list>
+    <ion-item *ngIf="!tasks.length">
+      Você não tem nenhuma tarefa adicionada.
+      <p>
+        Clique <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon> para adicionar novas tarefas.
+      </p>
+    </ion-item>
+
+    <ion-item-sliding *ngFor = "let task of tasks">
+      <ion-item>
+        <ion-toggle checked="{{(task.status == 'pending')?false:true}}" (click)="doneTask(task.id, task.status)">
+        </ion-toggle>
+        <ion-label>
+          <h2 [ngClass]="t.status">{{task.task}}</h2>
+          <p [ngClass]="task.priority">
+            {{task.priority}}
+          </p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options>
+        <button primary (click)="showModal(task.id)"><ion-icon name="clipboard">Editar</ion-icon></button>
+        <button danger (click)="deleleTask(task.id)"><ion-icon name="trash">Remover</ion-icon></button>    
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
