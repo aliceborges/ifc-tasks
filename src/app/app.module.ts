@@ -7,7 +7,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ModalPageModule } from '../pages/modal/modal.module';
-import { DbProvider } from '../providers/db/db';
 
 
 @NgModule({
@@ -17,7 +16,7 @@ import { DbProvider } from '../providers/db/db';
   ],
   imports: [
     BrowserModule,
-    ModalPageModule, 
+    ModalPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -29,7 +28,6 @@ import { DbProvider } from '../providers/db/db';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DbProvider
   ]
 })
 export class AppModule {}
