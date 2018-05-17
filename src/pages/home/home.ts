@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Page, Modal, NavController, NavParams, ViewController, Alert, Toast, ActionSheet } from 'ionic-angular';
+import { Page, ModalController, NavController, NavParams, ViewController, Alert, Toast, ActionSheet } from 'ionic-angular';
+import { ModalPage } from '../modal/modal';
 
 @Component({
   selector: 'page-home',
@@ -7,12 +8,13 @@ import { Page, Modal, NavController, NavParams, ViewController, Alert, Toast, Ac
 })
 
 export class HomePage {
-  static get parameters(){
-    return [ [NavController] ];
-  }
 
-  constructor(nav) {
-    this.nav = nav;
+  public tasks;
+  // static get parameters(){
+  //   return [ [NavController] ];
+  // }
+
+  constructor(public nav: NavController, public modalCtrl: ModalController) {
 
     this.tasks = [
       {task:'task1', priority:'baixa', body:'content', deadline:'01/01/2019', status:'pendente'},
@@ -23,28 +25,9 @@ export class HomePage {
     ]
   }
 
-  showModal(){
-    let modal = Modal.create(MyModal);
-    this.nav.present(modal);
-  }
-}
-
-@Page({
-  selector: 'page-modal',
-  templateUrl: 'modal.html'
-})
-
-class MyModal{
-  static get parameters(){
-    return [ [NavController], [NavParams], [ViewController] ];
+  showModal() {
+    let createTask = this.modalCtrl.create(ModalPage);
+    createTask.present();
   }
 
-  constructor(nav, params, viewCtrl){
-    this.nav = nav;
-    this.viewCtrl = viewCtrl;
-  }
-
-  close(){
-    this.viewCtrl.dismiss;
-  }
 }
