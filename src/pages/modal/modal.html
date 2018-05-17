@@ -1,40 +1,47 @@
 <ion-header>
     <ion-toolbar primary>
         <ion-title>
-            {{label}} Task
+            Adicionar Tarefa
         </ion-title>
         <ion-buttons start>
-            <button color="light" end (click)="close()">
-                <span showWhen="ios">Cancel</span>
-                <ion-icon name="close" showWhen="android"></ion-icon>
-                <ion-icon name="close" showWhen="windows"></ion-icon>
+            <button ion-button (click)="close()">
+                <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
             </button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding-vertical>
 
     <ion-list>
 
         <ion-item>
-            <ion-label stacked>Task</ion-label>
+            <ion-label stacked>Titulo</ion-label>
             <ion-input type="text" [(ngModel)]="task"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label>Priority</ion-label>
+            <ion-label stacked>Conteudo</ion-label>
+            <ion-textarea type="text" [(ngModel)]="body"></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Data de encerramento</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="deadline"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Prioridade</ion-label>
             <ion-select [(ngModel)]="priority">
-                <ion-option value="high">High</ion-option>
+                <ion-option value="low">Baixa</ion-option>
                 <ion-option value="normal">Normal</ion-option>
-                <ion-option value="low">Low</ion-option>
+                <ion-option value="high">Alta</ion-option>
             </ion-select>
         </ion-item>
 
     </ion-list>
 
-    <div padding>
-        <button full round (click)="saveTask()">Save</button>
-    </div>
+    <button padding ion-button full round (click)="saveTask()">Adicionar</button>
+
 
 </ion-content>

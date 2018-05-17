@@ -24,5 +24,5 @@ export class ModalPage {
 
   close(){
     this.viewCtrl.dismiss();
-  }
+  } 
 }

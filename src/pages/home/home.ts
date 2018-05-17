@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Page, ModalController, NavController, NavParams, ViewController, Alert, Toast, ActionSheet } from 'ionic-angular';
+import { ModalController, NavController, NavParams, ViewController, Alert, Toast, ActionSheet } from 'ionic-angular';
 import { ModalPage } from '../modal/modal';
 
 @Component({
