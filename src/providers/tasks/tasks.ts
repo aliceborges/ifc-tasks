@@ -1,17 +1,56 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
+import { DatePipe } from '@angular/common';
 
-/*
-  Generated class for the TasksProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class TasksProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello TasksProvider Provider');
+  constructor(private storage: Storage, private datepipe: DatePipe) {}
+
+  public insert(task: Task){
+    let key = this.datepipe.transform(new Date(), 'ddMMyyyyHHmmss');
+    return this.save(key, task);
   }
 
+  private save(key: string, task: Task){
+    return this.storage.set(key, task);
+  }
+
+  public remove(key: string){
+    return this.storage.remove(key);
+  }
+
+  public update(key: string, task: Task){
+    return this.save(key, task);
+  }
+
+  public getAll(){
+    let tasks: listTasks[] = [];
+
+    this.storage.forEach((value: Task, key: string, itrationNumber: Number) => {
+      let task = new listTasks;
+      task.key = key;
+      task.task = value;
+      tasks.push(task);
+    })
+    .then(() => {
+      return Promise.resolve(tasks);
+    })
+    .catch(() => {
+      return Promise.reject(Error);
+    });
+  }
+}
+
+export class Task{
+  task: string;
+  priority: string;
+  body: string;
+  deadline: string;
+  status: string;
+}
+
+export class listTasks{
+  key: string;
+  task: Task;
 }
