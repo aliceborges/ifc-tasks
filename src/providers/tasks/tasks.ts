@@ -27,7 +27,7 @@ export class TasksProvider {
   public getAll(){
     let tasks: listTasks[] = [];
 
-    this.storage.forEach((value: Task, key: string, itrationNumber: Number) => {
+    return this.storage.forEach((value: Task, key: string, itrationNumber: Number) => {
       let task = new listTasks;
       task.key = key;
       task.task = value;
