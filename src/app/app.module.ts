@@ -30,7 +30,7 @@ import { DatePipe } from '@angular/common';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: LOCALE_ID, useValue: 'pt-BR'},
+    //{provide: LOCALE_ID, useValue: 'pt-BR'},
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TasksProvider,
     DatePipe,

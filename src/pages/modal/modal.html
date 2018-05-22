@@ -17,22 +17,22 @@
 
         <ion-item>
             <ion-label stacked>Titulo</ion-label>
-            <ion-input type="text" [(ngModel)]="task"></ion-input>
+            <ion-input type="text" [(ngModel)]="task.task"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label stacked>Conteudo</ion-label>
-            <ion-textarea type="text" [(ngModel)]="body"></ion-textarea>
+            <ion-textarea type="text" [(ngModel)]="task.body"></ion-textarea>
         </ion-item>
 
         <ion-item>
             <ion-label stacked>Data de encerramento</ion-label>
-            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="deadline"></ion-datetime>
+            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="task.deadline"></ion-datetime>
         </ion-item>
 
         <ion-item>
             <ion-label stacked>Prioridade</ion-label>
-            <ion-select [(ngModel)]="priority">
+            <ion-select [(ngModel)]="task.priority">
                 <ion-option value="low">Baixa</ion-option>
                 <ion-option value="normal">Normal</ion-option>
                 <ion-option value="high">Alta</ion-option>
@@ -41,7 +41,7 @@
 
     </ion-list>
 
-    <button padding ion-button full round (click)="saveTask()">Adicionar</button>
+    <button padding ion-button full round (click)="save()">Adicionar</button>
 
 
 </ion-content>
