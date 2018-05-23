@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController, NavController, NavParams, ViewController, Alert, Toast, ActionSheet, ToastController } from 'ionic-angular';
 import { ModalPage } from '../modal/modal';
+import { EditModalPage } from '../edit-modal/edit-modal';
 import { TasksProvider, Task, listTasks } from '../../providers/tasks/tasks';
 
 @Component({
@@ -44,6 +45,14 @@ export class HomePage {
       this.atualizaLista();
     });
     createTask.present();
+  }
+
+  editTask(key, task) {
+    let editTask = this.modalCtrl.create(EditModalPage, { key: key, task : task});
+    editTask.onDidDismiss(() => {
+      this.atualizaLista();
+    });
+    editTask.present();
   }
 
   removeTask(key){

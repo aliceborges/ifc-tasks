@@ -8,6 +8,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ModalPageModule } from '../pages/modal/modal.module';
+import { EditModalPageModule } from '../pages/edit-modal/edit-modal.module';
 import { TasksProvider } from '../providers/tasks/tasks';
 import { DatePipe } from '@angular/common';
 
@@ -19,6 +20,7 @@ import { DatePipe } from '@angular/common';
   imports: [
     BrowserModule,
     ModalPageModule,
+    EditModalPageModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],

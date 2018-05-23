@@ -17,14 +17,7 @@ export class ModalPage {
               private tasksProvider: TasksProvider,
               private toast: ToastController
             ) {
-
-      if (this.navParams.data.task && this.navParams.data.key){
-        this.task = this.navParams.data.task;
-        this.key = this.navParams.data.key;
-      }
-      else{
-        this.task = new Task();
-      }
+    this.task = new Task();
   }
 
   saveTask(){
@@ -40,11 +33,11 @@ export class ModalPage {
     this.saveTask()
       .then(() => {
         this.toast.create({message: 'A tarefa foi adicionada.', duration: 3000, position: 'botton'}).present();
-        this.close();
+        this.viewCtrl.dismiss();
       })
       .catch(() => {
         this.toast.create({message: 'Erro ao salvar a tarefa.', duration: 3000, position: 'botton'}).present();
-        this.close();
+        this.viewCtrl.dismiss();
       })
   }
 
