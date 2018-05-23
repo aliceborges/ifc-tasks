@@ -31,17 +31,24 @@ export class HomePage {
       });
   }
 
+  atualizaLista(){
+    this.tasksProvider.getAll()
+      .then((results) => {
+        this.tasks = results;
+      });
+  }
+
   showModal() {
     let createTask = this.modalCtrl.create(ModalPage);
-
     createTask.onDidDismiss(() => {
-      this.tasksProvider.getAll()
-        .then((results) => {
-          this.tasks = results;
-        });
+      this.atualizaLista();
     });
-
     createTask.present();
+  }
+
+  removeTask(key){
+    this.tasksProvider.remove(key);
+    this.atualizaLista();
   }
 
 }

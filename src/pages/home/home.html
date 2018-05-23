@@ -42,7 +42,7 @@
 
       <ion-item-options>
         <button ion-button color="primary" (click)="showModal(task.task.id)"><ion-icon name="clipboard"></ion-icon>Editar</button>
-        <button ion-button color="danger" (click)="deleleTask(task.task.id)"><ion-icon name="trash"></ion-icon>Remover</button>
+        <button ion-button color="danger" (click)="removeTask(task.key)"><ion-icon name="trash"></ion-icon>Remover</button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
