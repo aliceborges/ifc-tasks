@@ -31,6 +31,7 @@ export class TasksProvider {
       let task = new listTasks;
       task.key = key;
       task.task = value;
+      //console.log(task.task);
       tasks.push(task);
     })
     .then(() => {

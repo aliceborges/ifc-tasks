@@ -21,13 +21,7 @@ export class HomePage {
               public toast: ToastController
             ) {
 
-    this.tasks = [
-      //{task:'task1', priority:'baixa', body:'content', deadline:'01/01/2019', status:'pendente'},
-      //{task:'task2', priority:'alta', body:'content', deadline:'01/01/2019', status:'pendente'},
-      //{task:'task3', priority:'normal', body:'content', deadline:'01/01/2019', status:'pendente'},
-      //{task:'task4', priority:'alta', body:'content', deadline:'01/01/2019', status:'finalizada'},
-      //{task:'task5', priority:'baixa', body:'content', deadline:'01/01/2019', status:'pendente'}
-    ]
+    this.tasks = []
   }
 
   ionViewDidEnter(){
@@ -39,6 +33,14 @@ export class HomePage {
 
   showModal() {
     let createTask = this.modalCtrl.create(ModalPage);
+
+    createTask.onDidDismiss(() => {
+      this.tasksProvider.getAll()
+        .then((results) => {
+          this.tasks = results;
+        });
+    });
+
     createTask.present();
   }
 

@@ -27,17 +27,6 @@ export class ModalPage {
       }
   }
 
-  save(){
-    this.saveTask()
-      .then(() => {
-        this.toast.create({message: 'A tarefa foi adicionada.', duration: 3000, position: 'botton'}).present();
-        close();
-      })
-      .catch(() => {
-        this.toast.create({message: 'Erro ao salvar a tarefa.', duration: 3000, position: 'botton'}).present();
-      })
-  }
-
   saveTask(){
     if (this.key){
       return this.tasksProvider.update(this.key, this.task);
@@ -45,6 +34,18 @@ export class ModalPage {
     else{
       return this.tasksProvider.insert(this.task);
     }
+  }
+
+  save(){
+    this.saveTask()
+      .then(() => {
+        this.toast.create({message: 'A tarefa foi adicionada.', duration: 3000, position: 'botton'}).present();
+        this.close();
+      })
+      .catch(() => {
+        this.toast.create({message: 'Erro ao salvar a tarefa.', duration: 3000, position: 'botton'}).present();
+        this.close();
+      })
   }
 
   close(){

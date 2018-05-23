@@ -24,25 +24,25 @@
 
     <ion-item-sliding *ngFor = "let task of tasks">
       <ion-item>
-        <ion-toggle checked="{{(task.status == 'pending')?false:true}}" (click)="doneTask(task.id, task.status)">
+        <ion-toggle checked="{{(task.task.status == 'pending')?false:true}}" (click)="doneTask(task.task.id, task.task.status)">
         </ion-toggle>
         <ion-label>
-          <h2 [ngClass]="task.status">{{task.task}}</h2>
-          <p [ngClass]="task.body">
-            {{task.body}}
+          <h2 [ngClass]="task.task.status">{{task.task.task}}</h2>
+          <p [ngClass]="task.task.body">
+            {{task.task.body}}
           </p>
-          <p [ngClass]="task.deadline">
-            Termina no dia: {{task.deadline}}
+          <p [ngClass]="task.task.deadline">
+            Termina no dia: {{task.task.deadline}}
           </p>
-          <p [ngClass]="task.priority">
-            {{task.priority}}
+          <p [ngClass]="task.task.priority">
+            {{task.task.priority}}
           </p>
         </ion-label>
       </ion-item>
 
       <ion-item-options>
-        <button ion-button color="primary" (click)="showModal(task.id)"><ion-icon name="clipboard"></ion-icon>Editar</button>
-        <button ion-button color="danger" (click)="deleleTask(task.id)"><ion-icon name="trash"></ion-icon>Remover</button>
+        <button ion-button color="primary" (click)="showModal(task.task.id)"><ion-icon name="clipboard"></ion-icon>Editar</button>
+        <button ion-button color="danger" (click)="deleleTask(task.task.id)"><ion-icon name="trash"></ion-icon>Remover</button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
