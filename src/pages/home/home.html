@@ -24,7 +24,7 @@
 
     <ion-item-sliding *ngFor = "let task of tasks">
       <ion-item>
-        <ion-toggle checked="{{(task.task.status == 'pending')?false:true}}" (click)="doneTask(task.task.id, task.task.status)">
+        <ion-toggle checked="{{(task.task.status == 'pending')?false:true}}" (click)="doneTask(task.key, task.task)">
         </ion-toggle>
         <ion-label>
           <h2 [ngClass]="task.task.status">{{task.task.task}}</h2>

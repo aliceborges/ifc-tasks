@@ -55,6 +55,13 @@ export class HomePage {
     editTask.present();
   }
 
+  doneTask(key, task){
+    task.status == 'pending'? task.status = 'done':task.status = 'pending';
+    console.log(task);
+    this.tasksProvider.update(key, task);
+    this.atualizaLista();
+  }
+
   removeTask(key){
     this.tasksProvider.remove(key);
     this.atualizaLista();

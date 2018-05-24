@@ -25,6 +25,7 @@ export class ModalPage {
       return this.tasksProvider.update(this.key, this.task);
     }
     else{
+      this.task.status = 'pending';
       return this.tasksProvider.insert(this.task);
     }
   }
