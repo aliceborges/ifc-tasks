@@ -24,8 +24,8 @@
 
     <ion-item-sliding *ngFor = "let task of tasks">
       <ion-item>
-        <ion-toggle checked="{{(task.task.status == 'pending')?false:true}}" (click)="doneTask(task.key, task.task)">
-        </ion-toggle>
+        <!--<ion-toggle checked="{{(task.task.status == 'pending')?false:true}}" (click)="doneTask(task.key, task.task)">
+        </ion-toggle>-->
         <ion-label>
           <h2 [ngClass]="task.task.status">{{task.task.task}}</h2>
           <p [ngClass]="task.task.body">
@@ -42,6 +42,7 @@
 
       <ion-item-options>
         <button ion-button color="primary" (click)="editTask(task.key, task.task)"><ion-icon name="clipboard"></ion-icon>Editar</button>
+        <button ion-button color="light" (click)="doneTask(task.key, task.task)"><ion-icon name="checkmark-circle"></ion-icon>Concluir</button>
         <button ion-button color="danger" (click)="removeTask(task.key)"><ion-icon name="trash"></ion-icon>Remover</button>
       </ion-item-options>
     </ion-item-sliding>

@@ -56,6 +56,7 @@ export class HomePage {
   }
 
   doneTask(key, task){
+    this.toast.create({message: 'A tarefa foi concluída!', duration: 3000, position: 'botton'}).present();
     task.status == 'pending'? task.status = 'done':task.status = 'pending';
     console.log(task);
     this.tasksProvider.update(key, task);
@@ -63,6 +64,7 @@ export class HomePage {
   }
 
   removeTask(key){
+    this.toast.create({message: 'A tarefa foi removida!', duration: 3000, position: 'botton'}).present();
     this.tasksProvider.remove(key);
     this.atualizaLista();
   }
